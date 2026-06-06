@@ -1,6 +1,7 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import { FiMenu, FiX } from 'react-icons/fi';
+import Logo from './Logo';
 
 const links = [
   { label: 'About', href: '#about' },
@@ -32,11 +33,11 @@ export default function Navbar() {
         transition={{ delay: 0.4, duration: 0.7, ease: [0.65, 0, 0.35, 1] }}
         className="fixed left-1/2 top-6 z-50 hidden -translate-x-1/2 md:block"
       >
-        <div className="glass flex items-center gap-3 rounded-full px-2 py-2 pl-5">
-          <a href="#hero" className="font-display text-sm font-bold tracking-wide text-white md:text-base">
-            <span className="text-gradient">A.</span>
+        <div className="glass flex items-center gap-3 rounded-full px-2 py-2 pl-3">
+          <a href="#hero" aria-label="Home" className="block">
+            <Logo size="sm" />
           </a>
-          <div className="mx-2 h-4 w-px bg-white/15" />
+          <div className="mx-1 h-4 w-px bg-white/15" />
           <ul className="flex items-center gap-1">
             {links.map((l) => (
               <li key={l.href}>
@@ -66,9 +67,12 @@ export default function Navbar() {
         transition={{ delay: 0.4, duration: 0.7, ease: [0.65, 0, 0.35, 1] }}
         className="fixed inset-x-4 top-4 z-50 md:hidden"
       >
-        <div className="glass flex items-center justify-between rounded-full px-4 py-2.5">
-          <a href="#hero" className="font-display text-base font-bold tracking-wide">
-            <span className="text-gradient">A.</span>
+        <div className="glass flex items-center justify-between rounded-full px-3 py-2">
+          <a href="#hero" aria-label="Home" className="flex items-center gap-2.5">
+            <Logo size="md" />
+            <span className="font-display text-[11px] font-semibold uppercase tracking-[0.25em] text-white/70">
+              Aaquib
+            </span>
           </a>
           <button
             onClick={() => setOpen(true)}
@@ -90,8 +94,13 @@ export default function Navbar() {
             transition={{ duration: 0.3 }}
             className="fixed inset-0 z-[60] flex flex-col bg-bg-base/95 backdrop-blur-xl md:hidden"
           >
-            <div className="flex items-center justify-between px-6 pt-6">
-              <span className="font-display text-xl font-bold text-gradient">A.</span>
+            <div className="flex items-center justify-between px-5 pt-5">
+              <div className="flex items-center gap-2.5">
+                <Logo size="md" />
+                <span className="font-display text-[11px] font-semibold uppercase tracking-[0.25em] text-white/70">
+                  Aaquib
+                </span>
+              </div>
               <button
                 onClick={() => setOpen(false)}
                 aria-label="Close menu"
