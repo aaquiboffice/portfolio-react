@@ -1,0 +1,175 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  --neon-purple: #b026ff;
+  --neon-cyan: #00f0ff;
+  --neon-violet: #7c3aed;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+html {
+  scroll-behavior: auto;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', system-ui, sans-serif;
+  background-color: #07020f;
+  color: #e9e4f4;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  cursor: none;
+}
+
+@media (hover: none) and (pointer: coarse) {
+  body {
+    cursor: auto;
+  }
+}
+
+a,
+button {
+  cursor: none;
+}
+
+@media (hover: none) and (pointer: coarse) {
+  a,
+  button {
+    cursor: pointer;
+  }
+}
+
+::selection {
+  background: rgba(176, 38, 255, 0.45);
+  color: #fff;
+}
+
+/* Lenis */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+/* Reusable layers */
+@layer utilities {
+  .text-gradient {
+    background: linear-gradient(135deg, #b026ff 0%, #7c3aed 50%, #00f0ff 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    background-size: 200% 200%;
+  }
+
+  .text-gradient-anim {
+    background: linear-gradient(135deg, #b026ff 0%, #7c3aed 50%, #00f0ff 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    background-size: 200% 200%;
+    animation: gradient-shift 8s ease infinite;
+  }
+
+  .glass {
+    background: rgba(18, 8, 38, 0.5);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(176, 38, 255, 0.15);
+  }
+
+  .neon-border {
+    box-shadow:
+      0 0 0 1px rgba(176, 38, 255, 0.3),
+      0 0 24px rgba(176, 38, 255, 0.15),
+      inset 0 0 24px rgba(0, 240, 255, 0.05);
+  }
+
+  .grid-bg {
+    background-image:
+      linear-gradient(rgba(176, 38, 255, 0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(176, 38, 255, 0.06) 1px, transparent 1px);
+    background-size: 56px 56px;
+  }
+}
+
+/* Custom cursor */
+.cursor-dot,
+.cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 9999;
+  border-radius: 9999px;
+  mix-blend-mode: difference;
+  will-change: transform;
+}
+
+.cursor-dot {
+  width: 6px;
+  height: 6px;
+  background: #fff;
+  transform: translate(-50%, -50%);
+}
+
+.cursor-ring {
+  width: 36px;
+  height: 36px;
+  border: 1.5px solid rgba(255, 255, 255, 0.9);
+  transform: translate(-50%, -50%);
+  transition: width 0.25s ease, height 0.25s ease, border-color 0.25s ease;
+}
+
+.cursor-ring.hover {
+  width: 64px;
+  height: 64px;
+  border-color: rgba(0, 240, 255, 0.9);
+}
+
+@media (hover: none) and (pointer: coarse) {
+  .cursor-dot,
+  .cursor-ring {
+    display: none;
+  }
+}
+
+/* Hide default scrollbar but keep scrollable */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #07020f;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #7c3aed, #b026ff);
+  border-radius: 8px;
+}
+
+/* Section base */
+section {
+  position: relative;
+}
