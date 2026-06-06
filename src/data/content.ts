@@ -8,7 +8,7 @@ export const personal = {
   workEmail: 'dev.olc@onelifecapital.in',
   phone: '+91 78882 71647',
   github: 'https://github.com/aaquiboffice',
-  linkedin: 'https://linkedin.com/in/Aauib-rodde',
+  linkedin: 'https://www.linkedin.com/in/aaquib-rodde-4ba888319',
   livePortfolio: 'https://portfolio-six-omega-9ccw0ck3gt.vercel.app/',
   summary:
     'MEAN Stack Developer with strong one year of experience building fast, scalable, user-friendly web applications. Skilled in MongoDB, Express, Angular, and Node.js with hands-on expertise in RESTful API design, UI/UX, and backend optimization. Passionate about clean code, solving real problems, and continuously learning emerging technologies.',
